@@ -59,6 +59,8 @@ function removeBook(bookId) {
   renderBooks();
 }
 
+removeBook();
+
 function addBook(book) {
   bookStorage.bookList.push(book);
   updateLocalStorage();
@@ -71,8 +73,8 @@ submitButton.addEventListener('click', (e) => {
   book.id = bookStorage.totalBook;
   book.title = titleInput.value;
   book.author = authorInput.value;
-  titleInput.value = ""
-  authorInput.value = ""
+  titleInput.value = '';
+  authorInput.value = '';
   addBook(book);
   renderBooks();
 });
