@@ -33,17 +33,37 @@ const renderBook = (book) => {
   const renderContainer = document.createElement('div');
   renderContainer.setAttribute('data-id', id);
   renderContainer.innerHTML = `
-            <h4>${title}</h4>
-            <h5>${author}</h5>
-            <button type="button" onclick="removeBook('${book.id}')">Remove</button>
-            <hr>
+  <div class="container mt-3">
+  <h2 class="text-center text-primary">Awesome Books</h2>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Authors</th>
+        <th>Books</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>${id}</td>
+        <td>${title}</td>
+        <td>${auther}</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Marry</td>
+        <td>Tom and Jerry</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
   `;
   return renderContainer;
 };
 
 const renderBooks = () => {
   createLocalStorage();
-  const container = document.querySelector('.ctn-book');
+  const container = document.getElementById('ctn-book');
   container.innerHTML = '';
   if (bookStorage.bookList !== null) {
     bookStorage.bookList.forEach((book) => {
