@@ -1,7 +1,6 @@
 const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
 const submitButton = document.getElementById('button');
-const removeButton = document.getElementById('buttonR');
 
 const radix = 10;
 
@@ -73,16 +72,6 @@ submitButton.addEventListener('click', (e) => {
   book.title = titleInput.value;
   book.author = authorInput.value;
   addBook(book);
-  renderBooks();
-});
-
-removeButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  const book = {};
-  book.id = 1;
-  book.title = '';
-  book.author = '';
-  removeBook(book);
   renderBooks();
 });
 
