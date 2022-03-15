@@ -31,8 +31,8 @@ function updateLocalStorage() {
 }
 
 // Remove from books collection
-function removeBook(book) {
-  let books = bookStorage.bookList.filter((item) => item.id !== book.id);
+function removeBook(bookId) {
+  let books = bookStorage.bookList.filter((item) => item.id !== parseInt(bookId));
   bookStorage.bookList = books
   updateLocalStorage();
   renderBooks();
@@ -78,7 +78,7 @@ const renderBook = (book) => {
   renderContainer.innerHTML = `
             <h4>${title}</h4>
             <h5>${author}</h5>
-            <button>Remove</button>
+            <button onclick="removeBook('${book.id}')">Remove</button>
             <hr>
   `;
   return renderContainer;
