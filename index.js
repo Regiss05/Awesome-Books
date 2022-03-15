@@ -30,33 +30,11 @@ function updateLocalStorage() {
 const renderBook = (book) => {
   const { id, title, author } = book;
 
-  const renderContainer = document.createElement('div');
-  renderContainer.setAttribute('data-id', id);
+  const renderContainer = document.createElement('tr');
   renderContainer.innerHTML = `
-  <div class="container mt-3">
-  <h2 class="text-center text-primary">Awesome Books</h2>
-  <table class="table table-dark table-striped">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Authors</th>
-        <th>Books</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
         <td>${id}</td>
         <td>${title}</td>
-        <td>${auther}</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Marry</td>
-        <td>Tom and Jerry</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        <td>${author}</td>
   `;
   return renderContainer;
 };
