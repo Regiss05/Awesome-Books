@@ -59,7 +59,7 @@ function removeBook(bookId) {
   renderBooks();
 }
 
-// removeBook();
+removeBook();
 
 function addBook(book) {
   bookStorage.bookList.push(book);
