@@ -38,26 +38,31 @@ The basic requirements for building the executable are:
 Getting packages and debuging with Stylelint
 >npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
 
-For validation detection using Stylelint Run
->npx stylelint "**/*.{css,scss}"
-
 Getting packages and debuging with Webhint
 >npm init -y
 >npm install --save-dev hint@6.x
 
-For validation detection using Webhint Run
->npx hint .
+
 
 Getting packages and debuging with Eslint
 >npm install --save-dev eslint@7.x eslint-config-airbnb-base@14.x eslint-plugin-import@2.x babel-eslint@10.x
 
-For validation detection using Eslint Run
->npx eslint .
 
 
 ### Usage
+- JS
+- HTML
+
 
 ### Run tests
+For validation detection using Eslint Run
+>npx eslint .
+
+For validation detection using Webhint Run
+>npx hint .
+
+For validation detection using Stylelint Run
+>npx stylelint "**/*.{css,scss}"
 
 ### Deployment
 
