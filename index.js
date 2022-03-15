@@ -43,7 +43,7 @@ const renderBook = (book) => {
 
 const renderBooks = () => {
   createLocalStorage();
-  const container = document.querySelector('.book-programs');
+  const container = document.querySelector('.ctn-book');
   container.innerHTML = '';
   if (bookStorage.bookList !== null) {
     bookStorage.bookList.forEach((book) => {
@@ -71,6 +71,8 @@ submitButton.addEventListener('click', (e) => {
   book.id = bookStorage.totalBook;
   book.title = titleInput.value;
   book.author = authorInput.value;
+  titleInput.value = ""
+  authorInput.value = ""
   addBook(book);
   renderBooks();
 });
