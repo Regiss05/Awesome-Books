@@ -35,6 +35,8 @@ const renderBook = (book) => {
         <td>${id}</td>
         <td>${title}</td>
         <td>${author}</td>
+        <td>
+        <button class="bg-danger text-light border-0 d-block" type="button" onclick="removeBook('${book.id}')">Delete</button></td>
   `;
   return renderContainer;
 };
