@@ -4,75 +4,86 @@ const submitButton = document.getElementById('button');
 
 const radix = 10;
 
-let bookStorage = {
-  totalBook: 0,
-  bookList: [],
-};
-
 function loadLocalStorage() {
+  if (localStorage.getItem('book') === null) {
+    localStorage.setItem('book', JSON.stringify([]));
+    const data = localStorage.getItem('book');
+    const bookStorage = JSON.parse(data);
+    return bookStorage;
+  }
   const data = localStorage.getItem('book');
-  bookStorage = JSON.parse(data);
+  const bookStorage = JSON.parse(data);
+  return bookStorage;
 }
 
-function createLocalStorage() {
-  if (localStorage.getItem('book') === null) {
-    localStorage.setItem('book', JSON.stringify(bookStorage));
-    loadLocalStorage();
-  } else {
-    loadLocalStorage();
-  }
-}
+let storage = loadLocalStorage();
 
 function updateLocalStorage() {
-  localStorage.setItem('book', JSON.stringify(bookStorage));
+  localStorage.setItem('book', JSON.stringify(storage));
 }
 
 const renderBook = (book) => {
   const { id, title, author } = book;
 
-  const renderContainer = document.createElement('div');
-  renderContainer.setAttribute('data-id', id);
+  const renderContainer = document.createElement('tr');
   renderContainer.innerHTML = `
-            <h4>${title}</h4>
-            <h5>${author}</h5>
-            <button type="button" onclick="removeBook('${book.id}')">Remove</button>
-            <hr>
+        <td>${id}</td>
+        <td>${title}</td>
+        <td>${author}</td>
+        <td>
+        <button class="bg-danger text-light border-0 d-block" type="button" onclick="removeBook('${book.id}')">Delete</button></td>
   `;
   return renderContainer;
 };
 
 const renderBooks = () => {
-  createLocalStorage();
-  const container = document.querySelector('.ctn-book');
+  const container = document.getElementById('ctn-book');
   container.innerHTML = '';
-  if (bookStorage.bookList !== null) {
-    bookStorage.bookList.forEach((book) => {
+  if (storage !== null) {
+    storage.forEach((book) => {
       container.appendChild(renderBook(book));
     });
   }
 };
 
-function removeBook(bookId) {
-  const books = bookStorage.bookList.filter((item) => item.id !== parseInt(bookId, radix));
-  bookStorage.bookList = books;
-  updateLocalStorage();
-  renderBooks();
-}
+class Book {
+  constructor(id, title, author) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+  }
 
-removeBook();
+  // Add book to storage
+  static addBook(book) {
+    storage.push(book);
+    updateLocalStorage();
+    renderBooks();
+  }
+
+  // Remove book from storage
+  static removeBook(bookId) {
+    const books = storage.filter((item) => item.id !== parseInt(bookId, radix));
+    storage = books;
+    updateLocalStorage();
+    renderBooks();
+  }
+}
 
 function addBook(book) {
-  bookStorage.bookList.push(book);
-  updateLocalStorage();
+  Book.addBook(book);
 }
+
+function removeBook(bookId) {
+  Book.removeBook(bookId);
+}
+removeBook();
 
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
-  bookStorage.totalBook += 1;
-  const book = {};
-  book.id = bookStorage.totalBook;
-  book.title = titleInput.value;
-  book.author = authorInput.value;
+  const id = storage.length + 1;
+  const title = titleInput.value;
+  const author = authorInput.value;
+  const book = new Book(id, title, author);
   titleInput.value = '';
   authorInput.value = '';
   addBook(book);
