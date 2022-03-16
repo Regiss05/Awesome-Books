@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Awesome Books</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -34,33 +35,41 @@
         </div>
     </nav>
 
-    <div class="container mt-3">
-        <h2 class="text-center text-primary">Awesome Books</h2>
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Authors</th>
-                    <th>Books</th>
-                    <th>Effect</th>
-                </tr>
-            </thead>
-            <tbody id="ctn-book">
-            </tbody>
-        </table>
-    </div>
-
-    <form class="container mt-5 form-add">
-        <div class="row">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Enter Title" name="title" id="title">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Enter Authors name" name="Author" id="author">
-            </div>
-            <button class="bg-primary text-light m-2 p-2 border-0" id="button" type="button">Add</button>
+    <main>
+        <!-- Div for list of books-->
+        <!-- Div for the form -->
+        <!-- Div for the contact -->
+        <div class="container mt-3">
+            <h2 class="text-center text-primary">Awesome Books</h2>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Authors</th>
+                        <th>Books</th>
+                        <th>Effect</th>
+                    </tr>
+                </thead>
+                <tbody id="ctn-book">
+                </tbody>
+            </table>
         </div>
-    </form>
+    
+        <form class="container mt-5 form-add">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter Title" name="title" id="title">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter Authors name" name="Author" id="author">
+                </div>
+                <button class="bg-primary text-light m-2 p-2 border-0" id="button" type="button">Add</button>
+            </div>
+        </form>
+    </main>
+
+    <footer></footer>
+
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"

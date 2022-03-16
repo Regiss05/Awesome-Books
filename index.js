@@ -2,6 +2,14 @@ const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
 const submitButton = document.getElementById('button');
 
+const bookListDiv = document.getElementById('')
+const formDiv = document.getElementById('')
+const contactDiv = document.getElementById('')
+
+const itemList = document.getElementById('list')
+const itemAdd = document.getElementById('add')
+const itemContact = document.getElementById('contact')
+
 const radix = 10;
 
 function loadLocalStorage() {
@@ -68,6 +76,42 @@ class Book {
     renderBooks();
   }
 }
+
+
+class Page {
+  static setPage(page) {
+    switch (page) {
+      case 0:
+        // code
+        break;
+      case 1:
+        // code
+        break;
+      case 2:
+        // code
+        break;
+    }
+  }
+
+  listPage() {
+      // 1 - List is selected
+      // 2 - We need to get data from storage and 
+      // populate the list
+  }
+
+  formPage() {
+    // 1 - Form is selected
+    // 2 - We enter data in storage
+  }
+  contactPage() {
+    // - Construct the dom
+  }
+}
+
+function constructListPage(){}
+function constructFormPage(){}
+function constructContactPage(){}
+
 
 function addBook(book) {
   Book.addBook(book);
