@@ -1,3 +1,29 @@
 #ctn {
   width: 30rem;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
+footer > h5 {
+  text-align: center;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact > ul > li {
+  list-style: none;
+}
+
+#navbarSupportedContent > ul > li:active {
+  color: rgb(145, 145, 252);
+}
+
+header > h5 {
+  text-align: end;
+  margin-right: 5px;
+}
